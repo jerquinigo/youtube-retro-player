@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import DisplayVideo from "./DisplayVideo.js";
 const secret = require("../secret.json");
 
 class UserSearch extends Component {
@@ -68,6 +69,9 @@ class UserSearch extends Component {
       <div>
         UserSearch
         {this.getUserInput()}
+        {this.state.videoId.length ? (
+          <DisplayVideo videoId={this.state.videoId} />
+        ) : null}
       </div>
     );
   }
