@@ -57,6 +57,11 @@ class UserSearch extends Component {
           this.setState({
             videoId: videoIdArr
           });
+        })
+        .then(() => {
+          this.setState({
+            userInput: ""
+          });
         });
     }
   };

@@ -10,47 +10,55 @@ class DisplayVideo extends Component {
     };
   }
 
-  displayVideo = nextVid => {
-    return (
-      <YouTube
-        className="videoPlayer"
-        videoId={"vGUEAdWrqZk"}
-        onEnd={this.onEndVideo}
-      />
-    );
+  displayVideo = () => {
+    if (this.props.videoId) {
+      console.log(this.props.videoId, "the video id length to keep an eye on");
+      return (
+        <YouTube
+          className={"videoPlayer"}
+          autoplay={true}
+          videoId={this.props.videoId[0]}
+          onReady={this.onReadyVideo}
+          onEnd={this.onEndVideo}
+          onError={this.onError}
+        />
+      );
+    }
+  };
+
+  onReadyVideo = event => {
+    debugger;
+    event.target.playVideo();
+    let data = event.target.getVideoData();
+    console.log(data);
+  };
+  onError = () => {
+    return <p>hello world</p>;
   };
 
   onEndVideo = event => {
-    debugger;
+    // cueVideoById;
+
     let videos = this.props.videoId;
-    let nextVideoQ = String(videos.shift());
-
-    event.target.loadVideoById(nextVideoQ);
+    videos.shift();
+    let videoQueue = videos.shift();
+    event.target.cueVideoById(`${videoQueue}`);
   };
-  // <Iframe
-  //   className="videoPlayer"
-  //   url="http://www.youtube.com/embed/vGUEAdWrqZk"
-  //   width="450px"
-  //   height="450px"
-  //   id="myId"
-  //   display="initial"
-  //   position="relative"
-  // />,
 
-  checkEvent = event => {};
+  //to display again the list of youtube videos using a different player_api
+  // };
 
   render() {
-    console.log(this.props.videoId, "the video Id ");
-    console.log(this.state.videoNext, "next");
+    console.log(this.props.videoId, "the video ID");
     return (
       <div>
         DisplayVideo
-        {this.displayVideo()}
-        {this.checkEvent()}
-        {this.props.videoId ? this.onEndVideo() : null}
+        {this.props.videoId ? this.displayVideo() : null}
       </div>
     );
   }
 }
 
 export default DisplayVideo;
+
+// videoId={"vGUEAdWrqZk"}
