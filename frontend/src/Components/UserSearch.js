@@ -22,18 +22,21 @@ class UserSearch extends Component {
   getUserInput = () => {
     return (
       <div>
-        <input
-          type="text"
-          onChange={this.handleChange}
-          name="userInput"
-          placeholder="enter text"
-        />
-        <button onClick={this.getVideoUrl}>submit</button>
+        <form onSubmit={this.getVideoUrl}>
+          <input
+            type="text"
+            onChange={this.handleChange}
+            name="userInput"
+            placeholder="enter text"
+          />
+          <input type="submit" value="submit" />
+        </form>
       </div>
     );
   };
 
-  getVideoUrl = () => {
+  getVideoUrl = event => {
+    event.preventDefault();
     let apikey = secret.secretkey;
     let query = this.state.userInput;
     // https://www.googleapis.com/youtube/v3/search?key=AIzaSyBmkkiBkyBt8LbEPsOuijYCjjJZxAPElQM&part=snippet&q=${
@@ -59,14 +62,18 @@ class UserSearch extends Component {
           });
         })
         .then(() => {
-          this.setState({
-            userInput: ""
-          });
+          this.resetStateForInput();
         });
     }
   };
 
-  getVideos = () => {};
+  resetStateForInput = () => {
+    if (this.state.videoApiData && this.state.userInput) {
+      this.setState({
+        userInput: ""
+      });
+    }
+  };
 
   render() {
     console.log(this.state.videoId);

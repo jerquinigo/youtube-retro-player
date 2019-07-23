@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 // import Iframe from "react-iframe";
 import YouTube from "react-youtube";
+import television from "../Assets/editedTvForProject.png";
+import "../CSS/DisplayVideo.css";
 
 class DisplayVideo extends Component {
   constructor() {
@@ -14,20 +16,28 @@ class DisplayVideo extends Component {
     if (this.props.videoId) {
       console.log(this.props.videoId, "the video id length to keep an eye on");
       return (
-        <YouTube
-          className={"videoPlayer"}
-          autoplay={true}
-          videoId={this.props.videoId[0]}
-          onReady={this.onReadyVideo}
-          onEnd={this.onEndVideo}
-          onError={this.onError}
-        />
+        <div className="mainDisplayContainer">
+          <div className="innerDisplayContainer">
+            <div className="imageDiv">
+              <img className="televisionImage" src={television} alt="" />
+            </div>
+            <div className="videoPlayerDiv">
+              <YouTube
+                className={"videoPlayer"}
+                autoplay={true}
+                videoId={this.props.videoId[0]}
+                onReady={this.onReadyVideo}
+                onEnd={this.onEndVideo}
+                onError={this.onError}
+              />
+            </div>
+          </div>
+        </div>
       );
     }
   };
 
   onReadyVideo = event => {
-    debugger;
     event.target.playVideo();
     let data = event.target.getVideoData();
     console.log(data);
