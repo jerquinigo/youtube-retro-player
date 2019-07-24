@@ -23,24 +23,26 @@ class UserSearch extends Component {
   getUserInput = () => {
     return (
       <div>
-        <form onSubmit={this.getVideoUrl}>
-          <div className="centerInputBox">
-            <div className="row">
-              <input
-                className="input-field col s4"
-                type="text"
-                onChange={this.handleChange}
-                name="userInput"
-                placeholder="Enter A song please"
-              />
+        <div className="card">
+          <form onSubmit={this.getVideoUrl}>
+            <div className="centerInputBox">
+              <div className="row">
+                <input
+                  className="input-field col s4"
+                  type="text"
+                  onChange={this.handleChange}
+                  name="userInput"
+                  placeholder="Enter A song please"
+                />
+              </div>
             </div>
-          </div>
-          <input
-            className="btn waves-effect waves-light"
-            type="submit"
-            value="submit"
-          />
-        </form>
+            <input
+              className="btn waves-effect waves-light"
+              type="submit"
+              value="submit"
+            />
+          </form>
+        </div>
       </div>
     );
   };
@@ -89,7 +91,6 @@ class UserSearch extends Component {
     console.log(this.state.videoId);
     return (
       <div>
-        UserSearch
         {this.getUserInput()}
         {this.state.videoId.length ? (
           <DisplayVideo videoId={this.state.videoId} />

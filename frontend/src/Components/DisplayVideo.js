@@ -60,12 +60,7 @@ class DisplayVideo extends Component {
 
   render() {
     console.log(this.props.videoId, "the video ID");
-    return (
-      <div>
-        DisplayVideo
-        {this.props.videoId ? this.displayVideo() : null}
-      </div>
-    );
+    return <div>{this.props.videoId ? this.displayVideo() : null}</div>;
   }
 }
 

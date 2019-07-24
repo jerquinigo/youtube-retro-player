@@ -8,3 +8,10 @@
   width: 100%;
   text-align: center;
 }
+
+.card {
+  margin-left: 30%;
+  margin-right: 30%;
+  padding-bottom: 3%;
+  padding-top: 3%;
+}
