@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/jerquinigo/youtube-retro-player/issues"
   },
-  "homepage": "https://github.com/jerquinigo/youtube-retro-player#readme"
+  "homepage": "https://github.com/jerquinigo/youtube-retro-player#readme",
+  "dependencies": {
+    "firebase-tools": "^7.2.0"
+  }
 }
