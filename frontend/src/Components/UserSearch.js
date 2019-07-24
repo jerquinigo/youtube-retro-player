@@ -51,7 +51,7 @@ class UserSearch extends Component {
     event.preventDefault();
     let apikey = secret.secretkey;
     let query = this.state.userInput;
-    // https://www.googleapis.com/youtube/v3/search?key=AIzaSyBmkkiBkyBt8LbEPsOuijYCjjJZxAPElQM&part=snippet&q=${
+
     if (query) {
       let videoIdArr = [];
       axios

@@ -8,9 +8,12 @@ class DisplayVideo extends Component {
   constructor() {
     super();
     this.state = {
-      videoNext: []
+      videoNext: [],
+      displayInfo: ""
     };
   }
+
+  //come up with a function that will display a default image before the search comes up
 
   displayVideo = () => {
     if (this.props.videoId) {
@@ -38,9 +41,16 @@ class DisplayVideo extends Component {
   };
 
   onReadyVideo = event => {
+    // debugger;
     event.target.playVideo();
     let data = event.target.getVideoData();
-    console.log(data);
+    let timer = event.target.getPlayerState();
+    console.log(timer, "the timer");
+    // console.log(data, "the data");
+    // this.setState({
+    //   displayInfo: timer
+    // });
+    // console.log(timer, "the current time");
   };
   onError = () => {
     return <p>hello world</p>;
@@ -60,6 +70,7 @@ class DisplayVideo extends Component {
 
   render() {
     console.log(this.props.videoId, "the video ID");
+
     return <div>{this.props.videoId ? this.displayVideo() : null}</div>;
   }
 }
