@@ -8,7 +8,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": " cd ./backend && npm start"
+    "start": " node ./backend/bin/www",
+    "heroku-postbuild": "cd ./backend && npm install && cd ../frontend && npm install --only=prod && npm run build"
   },
   "repository": {
     "type": "git",
