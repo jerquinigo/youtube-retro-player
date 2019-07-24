@@ -36,3 +36,32 @@
   height: auto;
   z-index: -1;
 }
+@media only screen and (min-width: 1366px) {
+  /* For desktop: */
+  .videoPlayer {
+    border-radius: 100px;
+    z-index: 1;
+    width: 50% !important;
+    height: 24em;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  /* For desktop: */
+  .videoPlayer {
+    border-radius: 100px;
+    z-index: 1;
+    width: 50% !important;
+    height: 24em;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  /* For desktop: */
+  .videoPlayer {
+    border-radius: 100px;
+    z-index: 1;
+    width: 50% !important;
+    height: 33em;
+  }
+}

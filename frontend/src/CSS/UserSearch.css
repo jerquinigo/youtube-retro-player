@@ -1,0 +1,10 @@
+.centerInputBox {
+  display: flex;
+  justify-content: center;
+}
+
+/* this is to overwrite the current Materialize default size for input */
+.row .col.s4 {
+  width: 100%;
+  text-align: center;
+}

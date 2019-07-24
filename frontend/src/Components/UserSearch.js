@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import DisplayVideo from "./DisplayVideo.js";
+import "../CSS/UserSearch.css";
 const secret = require("../secret.json");
 
 class UserSearch extends Component {
@@ -23,13 +24,22 @@ class UserSearch extends Component {
     return (
       <div>
         <form onSubmit={this.getVideoUrl}>
+          <div className="centerInputBox">
+            <div className="row">
+              <input
+                className="input-field col s4"
+                type="text"
+                onChange={this.handleChange}
+                name="userInput"
+                placeholder="Enter A song please"
+              />
+            </div>
+          </div>
           <input
-            type="text"
-            onChange={this.handleChange}
-            name="userInput"
-            placeholder="enter text"
+            className="btn waves-effect waves-light"
+            type="submit"
+            value="submit"
           />
-          <input type="submit" value="submit" />
         </form>
       </div>
     );
