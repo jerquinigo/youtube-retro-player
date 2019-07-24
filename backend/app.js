@@ -19,13 +19,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
-app.use(
-  session({
-    secret: "retroplayer",
-    resave: false,
-    saveUninitialized: true
-  })
-);
+// app.use(
+//   session({
+//     secret: "retroplayer",
+//     resave: false,
+//     saveUninitialized: true
+//   })
+// );
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
