@@ -75,6 +75,9 @@ class UserSearch extends Component {
         })
         .then(() => {
           this.resetStateForInput();
+        })
+        .catch(error => {
+          console.log(error.response);
         });
     }
   };
@@ -88,12 +91,15 @@ class UserSearch extends Component {
   };
 
   render() {
-    console.log(this.state.videoId);
+    console.log(this.state.userInput);
     return (
       <div>
         {this.getUserInput()}
         {this.state.videoId.length ? (
-          <DisplayVideo videoId={this.state.videoId} />
+          <DisplayVideo
+            userInput={this.state.userInput}
+            videoId={this.state.videoId}
+          />
         ) : null}
       </div>
     );
